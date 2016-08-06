@@ -21,7 +21,8 @@ var PockatsCmd = &cobra.Command{
 
 // Setup adds all child commands to the root command and sets flags appropriately.
 func Setup() {
-	AddCommands()
+	addCommands()
+	loadDefaultSettings()
 
 	if err := PockatsCmd.Execute(); err != nil {
 		fmt.Println(err)
@@ -30,9 +31,14 @@ func Setup() {
 
 }
 
-// AddCommands add all command-line commands to PockatsCmd variable
-func AddCommands() {
+// addCommands add all command-line commands to PockatsCmd variable
+func addCommands() {
 	PockatsCmd.AddCommand(versionCmd)
+}
+
+// loadDefaultSettings defines the default configuration options for the application.
+func loadDefaultSettings() {
+	viper.SetDefault("something", "funny")
 }
 
 func init() {
