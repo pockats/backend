@@ -43,6 +43,7 @@ func init() {
 // addCommands add all command-line commands to PockatsCmd variable
 func addCommands() {
 	PockatsCmd.AddCommand(versionCmd)
+	PockatsCmd.AddCommand(configCmd)
 }
 
 // loadDefaultSettings defines the default configuration options for the application.
